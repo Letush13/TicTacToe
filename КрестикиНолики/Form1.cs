@@ -37,6 +37,66 @@ namespace КрестикиНолики
                 {
                 label1.Text = "X";
                 }
+            if (pictureBox1.Tag == "O" && pictureBox2.Tag == "O" && pictureBox3.Tag == "O")
+            {
+                label1.Text = "O";
+            }
+            if (pictureBox6.Tag == "X" && pictureBox5.Tag == "X" && pictureBox4.Tag == "X")
+            {
+                label1.Text = "X";
+            }
+            if (pictureBox6.Tag == "O" && pictureBox5.Tag == "O" && pictureBox4.Tag == "O")
+            {
+                label1.Text = "O";
+            }
+            if (pictureBox9.Tag == "X" && pictureBox8.Tag == "X" && pictureBox7.Tag == "X")
+            {
+                label1.Text = "X";
+            }
+            if(pictureBox9.Tag == "O" && pictureBox8.Tag == "O" && pictureBox7.Tag == "O")
+            {
+                label1.Text = "O";
+            }
+            if(pictureBox1.Tag == "X" && pictureBox5.Tag == "X" && pictureBox7.Tag == "X")
+            {
+                label1.Text = "X";
+            }
+            if (pictureBox1.Tag == "O" && pictureBox5.Tag == "O" && pictureBox7.Tag == "O")
+            {
+                label1.Text = "O";
+            }
+            if (pictureBox3.Tag == "X" && pictureBox5.Tag == "X" && pictureBox9.Tag == "X")
+            {
+                label1.Text = "X";
+            }
+            if(pictureBox3.Tag == "O" && pictureBox5.Tag == "O" && pictureBox9.Tag == "O")
+            {
+                label1.Text = "O";
+            }
+            if(pictureBox1.Tag == "X" && pictureBox6.Tag == "X" && pictureBox9.Tag == "X")
+            {
+                label1.Text = "X";
+            }
+            if (pictureBox1.Tag == "O" && pictureBox6.Tag == "O" && pictureBox9.Tag == "O")
+            {
+                label1.Text = "O";
+            }
+            if (pictureBox2.Tag == "X" && pictureBox5.Tag == "X" && pictureBox8.Tag == "X")
+            {
+                label1.Text = "X";
+            }
+            if (pictureBox2.Tag == "O" && pictureBox5.Tag == "O" && pictureBox8.Tag == "O")
+            {
+                label1.Text = "O";
+            }
+            if (pictureBox3.Tag == "X" && pictureBox4.Tag == "X" && pictureBox7.Tag == "X")
+            {
+                label1.Text = "X";
+            }
+            if (pictureBox3.Tag == "O" && pictureBox4.Tag == "O" && pictureBox7.Tag == "O")
+            {
+                label1.Text = "O";
+            }
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
