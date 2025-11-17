@@ -1,0 +1,20 @@
+C:\Users\Павел ПК\source\repos\TicTacToe\КрестикиНолики\bin\Debug\КрестикиНолики.exe.config
+C:\Users\Павел ПК\source\repos\TicTacToe\КрестикиНолики\bin\Debug\КрестикиНолики.exe
+C:\Users\Павел ПК\source\repos\TicTacToe\КрестикиНолики\bin\Debug\КрестикиНолики.pdb
+C:\Users\Павел ПК\source\repos\TicTacToe\КрестикиНолики\obj\Debug\КрестикиНолики.csproj.AssemblyReference.cache
+C:\Users\Павел ПК\source\repos\TicTacToe\КрестикиНолики\obj\Debug\КрестикиНолики.Form1.resources
+C:\Users\Павел ПК\source\repos\TicTacToe\КрестикиНолики\obj\Debug\КрестикиНолики.Properties.Resources.resources
+C:\Users\Павел ПК\source\repos\TicTacToe\КрестикиНолики\obj\Debug\КрестикиНолики.csproj.GenerateResource.cache
+C:\Users\Павел ПК\source\repos\TicTacToe\КрестикиНолики\obj\Debug\КрестикиНолики.csproj.CoreCompileInputs.cache
+C:\Users\Павел ПК\source\repos\TicTacToe\КрестикиНолики\obj\Debug\КрестикиНолики.exe
+C:\Users\Павел ПК\source\repos\TicTacToe\КрестикиНолики\obj\Debug\КрестикиНолики.pdb
+C:\Users\Пользователь\Desktop\-_2025-master\TicTacToe\КрестикиНолики\bin\Debug\КрестикиНолики.exe.config
+C:\Users\Пользователь\Desktop\-_2025-master\TicTacToe\КрестикиНолики\bin\Debug\КрестикиНолики.exe
+C:\Users\Пользователь\Desktop\-_2025-master\TicTacToe\КрестикиНолики\bin\Debug\КрестикиНолики.pdb
+C:\Users\Пользователь\Desktop\-_2025-master\TicTacToe\КрестикиНолики\obj\Debug\КрестикиНолики.csproj.AssemblyReference.cache
+C:\Users\Пользователь\Desktop\-_2025-master\TicTacToe\КрестикиНолики\obj\Debug\КрестикиНолики.Form1.resources
+C:\Users\Пользователь\Desktop\-_2025-master\TicTacToe\КрестикиНолики\obj\Debug\КрестикиНолики.Properties.Resources.resources
+C:\Users\Пользователь\Desktop\-_2025-master\TicTacToe\КрестикиНолики\obj\Debug\КрестикиНолики.csproj.GenerateResource.cache
+C:\Users\Пользователь\Desktop\-_2025-master\TicTacToe\КрестикиНолики\obj\Debug\КрестикиНолики.csproj.CoreCompileInputs.cache
+C:\Users\Пользователь\Desktop\-_2025-master\TicTacToe\КрестикиНолики\obj\Debug\КрестикиНолики.exe
+C:\Users\Пользователь\Desktop\-_2025-master\TicTacToe\КрестикиНолики\obj\Debug\КрестикиНолики.pdb
