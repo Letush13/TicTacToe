@@ -13,17 +13,46 @@ namespace КрестикиНолики
 {
     public partial class Form1 : Form
     {
+        int count_pictures = 0;
+        bool win = false;
         bool turn = true; // True - X False - O
         Image image = Resources.Крестик;
+        string player = "X";
+        string computer = "O";
+        PictureBox[,] pictures = new PictureBox[3, 3];
         public Form1()
         {
             InitializeComponent();
         }
+        string[,] pictures_1 = new string[3, 3];
 
-
+        private void draw_field()
+        {
+            int x = 170;
+            int y = 50;
+            for (int i = 0; i < 3; i++) // столбцы
+            {
+                for (int j = 0; j < 3; j++) // Строки
+                {
+                    PictureBox new_picture = new PictureBox();
+                    new_picture.BackColor = Color.HotPink;
+                    new_picture.Location = new Point(x, y);
+                    new_picture.Size = new Size(75, 75);
+                    new_picture.SizeMode = PictureBoxSizeMode.StretchImage;
+                    new_picture.Click += Picture_Click;
+                    new_picture.Tag = i + "" + j;
+                    Controls.Add(new_picture);
+                    pictures[i, j] = new_picture;
+                    x += 80;
+                }
+                y += 80;
+                x = 170;
+            }
+        }
         private bool CheckCell(PictureBox pictureBox)
         {
-            if (pictureBox.Image == null) {
+            if (pictureBox.Image == null)
+            {
                 return true;
             }
             else
@@ -31,216 +60,116 @@ namespace КрестикиНолики
                 return false;
             }
         }
+        private void Picture_Click(object sender, EventArgs e)
+        {
+            PictureBox cur_picture = (PictureBox)sender;
+            //  MessageBox.Show(cur_picture.Tag.ToString());
+            string tag_1 = cur_picture.Tag.ToString();
+            int r = tag_1[0] - '0';
+            int c = tag_1[1] - '0';
+            //int r = cur_picture.Tag;
+            if (win == false && pictures_1[r, c] != "O")
+            {
+                player = "X";
+                count_pictures++;
+                cur_picture.Image = Resources.Крестик;
+                pictures_1[r, c] = player;
+                CheckWin();
+                if (win == false)
+                {
+                    Enemy_move();
+                }
+
+            }
+
+
+        }
+
+        //private bool CheckCell(PictureBox pictureBox)
+        //{
+        //    if (pictureBox.Image == null)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
         private void CheckWin()
         {
-            if (pictureBox1.Tag == "X" && pictureBox2.Tag == "X" && pictureBox3.Tag == "X")
+            for (int i = 0; i < 3; i++)
+            {
+                int row = 0;
+                int col = 0;
+
+                for (int j = 0; j < 3; j++)
                 {
-                label1.Text = "X";
+                    if (pictures_1[i, j] == player)
+                        row++;
+
+                    if (pictures_1[j, i] == player)
+                        col++;
                 }
-            if (pictureBox1.Tag == "O" && pictureBox2.Tag == "O" && pictureBox3.Tag == "O")
-            {
-                label1.Text = "O";
+
+                if (row == 3 || col == 3)
+                {
+                    MessageBox.Show("Win " + player);
+                    win = true;
+                    return;
+                }
             }
-            if (pictureBox6.Tag == "X" && pictureBox5.Tag == "X" && pictureBox4.Tag == "X")
+
+            int diag1 = 0;
+            int diag2 = 0;
+
+            for (int i = 0; i < 3; i++)
             {
-                label1.Text = "X";
+                if (pictures_1[i, i] == player)
+                    diag1++;
+
+                if (pictures_1[i, 2 - i] == player)
+                    diag2++;
             }
-            if (pictureBox6.Tag == "O" && pictureBox5.Tag == "O" && pictureBox4.Tag == "O")
+
+            if (diag1 == 3 || diag2 == 3)
             {
-                label1.Text = "O";
+                MessageBox.Show("Win " + player);
+                win = true;
+                return;
             }
-            if (pictureBox9.Tag == "X" && pictureBox8.Tag == "X" && pictureBox7.Tag == "X")
+
+
+            if (count_pictures == 9 && !win)
             {
-                label1.Text = "X";
-            }
-            if(pictureBox9.Tag == "O" && pictureBox8.Tag == "O" && pictureBox7.Tag == "O")
-            {
-                label1.Text = "O";
-            }
-            if(pictureBox1.Tag == "X" && pictureBox5.Tag == "X" && pictureBox7.Tag == "X")
-            {
-                label1.Text = "X";
-            }
-            if (pictureBox1.Tag == "O" && pictureBox5.Tag == "O" && pictureBox7.Tag == "O")
-            {
-                label1.Text = "O";
-            }
-            if (pictureBox3.Tag == "X" && pictureBox5.Tag == "X" && pictureBox9.Tag == "X")
-            {
-                label1.Text = "X";
-            }
-            if(pictureBox3.Tag == "O" && pictureBox5.Tag == "O" && pictureBox9.Tag == "O")
-            {
-                label1.Text = "O";
-            }
-            if(pictureBox1.Tag == "X" && pictureBox6.Tag == "X" && pictureBox9.Tag == "X")
-            {
-                label1.Text = "X";
-            }
-            if (pictureBox1.Tag == "O" && pictureBox6.Tag == "O" && pictureBox9.Tag == "O")
-            {
-                label1.Text = "O";
-            }
-            if (pictureBox2.Tag == "X" && pictureBox5.Tag == "X" && pictureBox8.Tag == "X")
-            {
-                label1.Text = "X";
-            }
-            if (pictureBox2.Tag == "O" && pictureBox5.Tag == "O" && pictureBox8.Tag == "O")
-            {
-                label1.Text = "O";
-            }
-            if (pictureBox3.Tag == "X" && pictureBox4.Tag == "X" && pictureBox7.Tag == "X")
-            {
-                label1.Text = "X";
-            }
-            if (pictureBox3.Tag == "O" && pictureBox4.Tag == "O" && pictureBox7.Tag == "O")
-            {
-                label1.Text = "O";
+                MessageBox.Show("notwin");
+                win = true;
             }
         }
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            if (CheckCell(pictureBox1))
-            {
-                pictureBox1.Image = image;
-                image = turn == true ? image = Resources.Нолик : image = Resources.Крестик;
-                pictureBox1.Tag = turn == true ? pictureBox1.Tag = "X" : pictureBox1.Tag = "O";
-                CheckWin();
-                turn = !turn; // NOT
-                
-                
-            }
 
-          
-            //if (turn)
-            //{
-            //    pictureBox1.Image = Resources.Крестик;
-            //    turn = false;
-            //}
-            //else
-            //{
-            //    pictureBox1.Image = Resources.Нолик;
-            //    turn = true;
-            //}
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void Enemy_move()
         {
-            if (CheckCell(pictureBox2))
-            {
-                pictureBox2.Image = image;
-                image = turn == true ? image = Resources.Нолик : image = Resources.Крестик;
-                pictureBox2.Tag = turn == true ? pictureBox2.Tag = "X" : pictureBox2.Tag = "O";
-                CheckWin();
-                turn = !turn; // NOT
-            }
-               
-            //if (turn)
-            //{
-            //    pictureBox2.Image = Resources.Крестик;
-            //    turn = false;
-            //}
-            //else
-            //{
-            //    pictureBox2.Image = Resources.Нолик;
-            //    turn = true;
-            //}
-        }
+            Random numbers = new Random();
+            int v = numbers.Next(3);
+            int x = numbers.Next(3);
 
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            if (CheckCell(pictureBox3))
+            while (!CheckCell(pictures[v, x]))
             {
-                pictureBox3.Image = image;
-                image = turn == true ? image = Resources.Нолик : image = Resources.Крестик;
-                pictureBox3.Tag = turn == true ? pictureBox3.Tag = "X" : pictureBox3.Tag = "O";
-                CheckWin();
-                turn = !turn; // NOT
+                v = numbers.Next(3);
+                x = numbers.Next(3);
             }
+            player = "O";
+            pictures_1[v, x] = player;
+            //  CheckWin();
+            pictures[v, x].Image = Resources.Нолик;
+            CheckWin();
 
         }
+     
 
-        private void pictureBox6_Click(object sender, EventArgs e)
+        private void Form1_Load_1(object sender, EventArgs e)
         {
-            if (CheckCell(pictureBox6))
-            {
-                pictureBox6.Image = image;
-                image = turn == true ? image = Resources.Нолик : image = Resources.Крестик;
-                pictureBox6.Tag = turn == true ? pictureBox6.Tag = "X" : pictureBox6.Tag = "O";
-                CheckWin();
-                turn = !turn; // NOT
-            }
-
-        }
-
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-            if (CheckCell(pictureBox5))
-            {
-                pictureBox5.Image = image;
-                image = turn == true ? image = Resources.Нолик : image = Resources.Крестик;
-                pictureBox5.Tag = turn == true ? pictureBox5.Tag = "X" : pictureBox5.Tag = "O";
-                CheckWin();
-                turn = !turn; // NOT
-            }
-
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-            if (CheckCell(pictureBox4))
-            {
-                pictureBox4.Image = image;
-                image = turn == true ? image = Resources.Нолик : image = Resources.Крестик;
-                pictureBox4.Tag = turn == true ? pictureBox4.Tag = "X" : pictureBox4.Tag = "O";
-                CheckWin();
-                turn = !turn; // NOT
-            }
-
-        }
-
-        private void pictureBox9_Click(object sender, EventArgs e)
-        {
-            if (CheckCell(pictureBox9))
-            {
-                pictureBox9.Image = image;
-                image = turn == true ? image = Resources.Нолик : image = Resources.Крестик;
-                pictureBox9.Tag = turn == true ? pictureBox9.Tag = "X" : pictureBox9.Tag = "O";
-                CheckWin();
-                turn = !turn; // NOT
-            }
-
-        }
-
-        private void pictureBox8_Click(object sender, EventArgs e)
-        {
-            if (CheckCell(pictureBox8))
-            {
-                pictureBox8.Image = image;
-                image = turn == true ? image = Resources.Нолик : image = Resources.Крестик;
-                pictureBox8.Tag = turn == true ? pictureBox8.Tag = "X" : pictureBox8.Tag = "O";
-                CheckWin();
-                turn = !turn; // NOT
-            }
-
-        }
-
-        private void pictureBox7_Click(object sender, EventArgs e)
-        {
-            if (CheckCell(pictureBox7))
-            {
-                pictureBox7.Image = image;
-                image = turn == true ? image = Resources.Нолик : image = Resources.Крестик;
-                pictureBox7.Tag = turn == true ? pictureBox7.Tag = "X" : pictureBox7.Tag = "O";
-                CheckWin();
-                turn = !turn; // NOT
-            }
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            draw_field();
         }
     }
 }
